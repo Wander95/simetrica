@@ -1,0 +1,37 @@
+<mat-card-header>
+  <mat-card-title>{{pokemon?.name}}</mat-card-title>
+  <mat-card-subtitle>{{pokemonUrl}}</mat-card-subtitle>
+  <!-- {{pokemonUrl}} -->
+</mat-card-header>
+<img class="header-image" mat-card-small-image [src]="pokemon?.sprites?.other?.home?.front_default" alt="Photo of a Shiba Inu">
+<mat-card-content>
+  <mat-slider min="1" max="1000" step="2" value="500"></mat-slider>
+</mat-card-content>
+<mat-card-actions>
+  <!-- <button mat-button>add</button> -->
+  <button mat-fab (click)="addToFavorite()">
+    <mat-icon>add</mat-icon>
+  </button>
+  <!-- <button mat-button>
+    <div></div>
+    <mat-icon>delete</mat-icon>
+  </button> -->
+</mat-card-actions>
+
+<form class="example-form">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Pokemon alias</mat-label>
+    <input
+      type="text"
+      matInput [formControl]="aliasFormControl"
+      [errorStateMatcher]="matcher"
+      placeholder="Tulile">
+
+    <mat-error *ngIf="aliasFormControl.hasError('email') && !aliasFormControl.hasError('required')">
+      Please enter a valid email address
+    </mat-error>
+    <mat-error *ngIf="aliasFormControl.hasError('required')">
+      Field is <strong>required</strong>
+    </mat-error>
+  </mat-form-field>
+</form>

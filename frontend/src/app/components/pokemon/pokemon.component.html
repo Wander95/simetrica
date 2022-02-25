@@ -1,0 +1,15 @@
+<ul class="mat-card-container ">
+  <mat-card class="example-card mat-elevation-z2" *ngFor="let pokemon of pokemons">
+    <app-pokemon-item [pokemonUrl]="pokemon.name"  [pokemonUrl]="pokemon.url"></app-pokemon-item>
+  </mat-card>
+
+
+</ul>
+  <mat-paginator [length]="count"
+  [pageSize]="limit"
+  [pageSizeOptions]="[5, 10, 20, 100]"
+  aria-label="Select page"
+  (page)="onPageEvent($event)"
+  showFirstLastButtons
+  >
+</mat-paginator>
